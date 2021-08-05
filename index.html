@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas</title>
+    <script defer src="categorias.js"></script>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="panelHome" class="panel">
+        <button onclick="mostrarPanelProductos()"> Productos </button>
+        <button onclick="mostrarPanelCategorias()"> Categorias </button>
+        <button onclick="mostrarPanelVentas()"> Ventas </button>
+    </div>
+    <div id="panelProductos" class="panel">
+        <h1>PRODUCTOS</h1>
+        <button class="btnAtras">atras</button>
+    </div>
+    <div id="panelCategorias" class="panel">
+        <h1>CATEGORIAS</h1>
+        <label for="txtCategoria"> Nombre:</label>
+        <input id="txtCategoria">
+        <button id="btnGuardarCategoria">Guardar</button>
+        <button class="btnAtras">atras</button>
+        <div id="listaCategorias"></div>
+    </div>
+    <div id="panelVentas" class="panel">
+        <h1>VENTAS</h1>
+        <button class="btnAtras">atras</button>
+    </div>
+</body>
+
+</html>
