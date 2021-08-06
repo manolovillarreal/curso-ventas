@@ -19,10 +19,8 @@ function agregarCategoria(categoria) {
         return undefined
 }
 
-function editarCategoria(categoria) {
-
-}
-
-function eliminarCategoria(categoria) {
-
+function eliminarCategoria(index) {
+    if (index >= 0 && index < listaCategorias.length) {
+        listaCategorias.splice(index, 1);
+    }
 }
