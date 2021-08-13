@@ -2,6 +2,21 @@ body {
     padding-top: 25px;
 }
 
+#menu {
+    width: 450px;
+    margin: 0 auto;
+}
+
+#menu div {
+    display: inline;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+#menu div:hover {
+    font-weight: bold;
+}
+
 button {
     width: 120px;
     display: block;

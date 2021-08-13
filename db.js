@@ -18,13 +18,58 @@ fileDB.onchange = function() {
         listaCategorias = obj.categorias;
 
         refrescarCategorias();
+        refrescarProductos();
     }
 
     reader.readAsText(file);
 
 }
 
+function guardarDB() {
 
+    let db = {
+        productos: listaProductos,
+        categorias: listaCategorias
+    }
+
+    console.log(db);
+    console.log('.............');
+    console.log(JSON.stringify(db));
+    let blob = new Blob([JSON.stringify(db)], { type: 'json' });
+    let fileName = "db.json";
+
+    saveAs(blob, fileName);
+
+
+
+
+
+
+
+}
+
+//#region Productos
+function agregarProducto(producto) {
+    if (producto) {
+
+        if (!listaProductos.find(p => p.nombre == producto.nombre)) {
+            listaProductos.push(producto);
+            listaProductos.sort(p => p.nombre);
+
+            let index = listaProductos.findIndex(p => p.nombre == p.nombre);
+            return {
+                ...producto,
+                index
+            }
+        } else {
+            return undefined;
+        }
+    } else
+        return undefined
+}
+//#endregion
+
+//#region  Categorias
 function agregarCategoria(categoria) {
     if (categoria != "") {
         categoria = categoria.toUpperCase();
@@ -38,10 +83,10 @@ function agregarCategoria(categoria) {
                 index
             }
         } else {
-            return undefined;
+            return { err: "Ya existe la categoria" };
         }
     } else
-        return undefined
+        return { err: "Debe enviar la categoria" };
 }
 
 function eliminarCategoria(index) {
@@ -49,3 +94,4 @@ function eliminarCategoria(index) {
         listaCategorias.splice(index, 1);
     }
 }
+//#endregion

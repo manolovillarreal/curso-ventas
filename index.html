@@ -9,15 +9,18 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="modal.css">
 
+    <script defer src="FileSaver.js"></script>
     <script defer src="config.js"></script>
     <script defer src="db.js"></script>
     <script defer src="categorias.js"></script>
+    <script defer src="productos.js"></script>
     <script defer src="main.js"></script>
 </head>
 
 <body>
-    <div>
+    <div id="menu">
         <div onclick="abrirModalConfig()">Config</div>
+        <div onclick="guardarDB()">Guardar</div>
     </div>
     <div id="panelHome" class="panel">
         <button onclick="mostrarPanelProductos()"> Productos </button>
@@ -26,20 +29,27 @@
     </div>
     <div id="panelProductos" class="panel">
         <h1>PRODUCTOS</h1>
-        <div>
-            <label for="txtNombreProducto"> Nombre:</label>
-            <input id="txtNombreProducto">
-        </div>
-        <div>
-            <label for="txtPrecioProducto"> Precio:</label>
-            <input id="txtPrecioProducto">
-        </div>
-        <div>
-            <label for="selectCategoria"> Categoria:</label>
-            <select id="selectCategoria">
+        <form name="formProducto">
+            <!--Nombre-->
+            <div>
+                <label for="txtNombreProducto"> Nombre:</label>
+                <input id="txtNombreProducto" name="nombre">
+            </div>
+            <!--Precio-->
+            <div>
+                <label for="txtPrecioProducto"> Precio:</label>
+                <input id="txtPrecioProducto" name="precio">
+            </div>
+            <!--Categoria-->
+            <div>
+                <label for="selectCategoria"> Categoria:</label>
+                <select id="selectCategoria" name=categoria>
             <option  >Sin Categoria </option>
         </select>
-        </div>
+            </div>
+            <button>Guardar</button>
+        </form>
+
         <div id="listaProductos"></div>
         <button class="btnAtras">atras</button>
     </div>
